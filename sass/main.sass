@@ -1,0 +1,985 @@
+*, *::before, *::after
+	box-sizing: border-box
+
+body
+	font-family: 'Source Sans Pro', sans-serif
+	// font-family: 'Bad Script', cursive;
+	margin: 0
+	padding: 0
+	overflow-x: hidden
+
+// RESETS AND DEFAULT
+
+.container
+	width: 1140px
+	padding: 0 15px
+	margin: 0 auto
+
+.menu_link
+	font-weight: 900
+	color: #c59d5f
+	text-transform: uppercase
+	text-decoration: underline
+
+.heading
+	text-transform: uppercase
+	font-size: 48px
+	font-weight: 900
+	margin: 0
+	&_curs
+		color: #c59d5f
+		position: relative
+		margin-top: 30px
+		font-size: 32px
+		font-style: italic
+		font-family: 'Bad Script', cursive
+
+.circle
+	width: 10px
+	height: 10px
+	border-radius: 50%
+	background-color: rgba(#fff, 0.5)
+	margin: 30px auto
+	display: inline-block
+	position: relative
+	&::after, &::before
+		content: ' '
+		position: absolute
+		height: 1px
+		width: 100px
+		background-color: #c59d5f
+		display: inline-block
+		top: 50%
+	&::after
+		left: 120px
+	&::before
+		right: 120px
+
+input:focus, button:focus
+	outline: none
+
+a
+	text-decoration: none
+
+section
+	padding: 60px 0
+
+.img-fluid
+	max-width: 100%
+	height: auto
+
+.header_mobile
+	display: none
+	&_menu
+		display: none
+
+.title
+	color: #C59D5F
+	font-size: 54px
+	margin: 0
+	font-family: 'Bad Script', cursive
+	&_small
+		margin: 0
+		margin-top: 30px
+		text-transform: uppercase
+		font-family: 'Bad Script', cursive
+
+.scrollOTop
+	background-color: #fea100
+	border: 2px solid #111
+	opacity: 0.85
+	width: 55px
+	height: 55px
+	border-radius: 50%
+	transition: all 0.4s
+	cursor: pointer
+	position: fixed
+	z-index: 2000
+	bottom: 30px
+	right: 50px
+	display: none
+	i
+		font-size: 24px
+		color: #fff
+	&:hover
+		background-color: #111
+		border: 2px solid #fea100
+
+// SLIDER BEGIN
+
+.slick-active
+	outline: none !important
+.slick-slide
+	outline: none !important
+
+
+
+// _______________HEADER________________
+
+.header
+	height: 100vh
+	position: relative
+	min-height: 550px
+	overflow: hidden
+	&_arrow
+		position: absolute
+		bottom: -25px
+		left: 50%
+		margin-left: -25px
+		border-radius: 30px
+		display: block
+		a
+			display: inline-block
+			text-align: center
+			background-color: transparent
+			width: 50px
+			background-color: #fff
+			height: 50px
+			line-height: 33px
+			border-radius: 50%
+			color: #fea100
+			transition: all 0.5s
+			&:hover
+				color: #111
+	&_flex
+		display: flex
+		justify-content: center
+		flex-wrap: wrap
+		align-items: center
+		height: 100%
+		overflow: hidden
+		&_item
+			position: relative
+			display: flex
+			justify-content: center
+			align-items: center
+			height: 100%
+			flex-basis: 25%
+			// border: 1px solid #aaa
+			background: url('../img/burg1.jpg') center no-repeat
+			background-size: cover
+			font-family: 'Bad Script', cursive
+			font-size: 48px
+			color: #aaa
+			transform: scale(1)
+			transition: all 1s
+			overflow: hidden
+			a
+				color: #fff
+				display: block
+				position: relative
+				z-index: 4
+				transition: all 0.5s
+				text-shadow: 2px 4px 6px #111
+				&:hover
+					transform: scale(1.35)
+					color: #eee
+					text-shadow: 4px 8px 11px #111
+			&::after
+				content: ' '
+				position: absolute
+				overflow: hidden
+				top: 0
+				left: 0
+				width: 100%
+				height: 100%
+				background: radial-gradient(transparent, #000)
+				opacity: 0.9
+				transition: all 0.8s
+
+			&:hover::after
+				opacity: 0.3
+			&_1
+				background: #333 url('../img/burg1.jpg') center no-repeat
+				// background-attachment: fixed
+				background-size: cover
+			&_2
+				background: #333 url('../img/burg2.jpg') center no-repeat
+				// background-attachment: fixed
+				background-size: cover
+			&_3
+				background: #333 url('../img/burg4.jpg') center no-repeat
+				// background-attachment: fixed
+				background-size: cover
+			&_4
+				background: #333 url('../img/burg3.jpg') center no-repeat
+				// background-attachment: fixed
+				background-size: cover
+	&_top
+		width: 100%
+		padding: 10px 0
+		background-color: #545
+		font-family: 'Bad Script', cursive
+		padding: 10px 0
+		position: absolute
+		background: rgba(#545, 0.8)
+		z-index: 2
+		.container
+			display: flex
+			align-items: center
+			justify-content: space-between
+		img
+			width: 120px
+			max-width: 100%
+		ul.header_nav
+			padding: 0
+			display: flex
+			list-style-type: none
+			li
+				margin-right: 30px
+				a
+					color: #fea100
+					font-size: 16px
+					text-transform: uppercase
+					display: block
+					border-bottom: 1px solid transparent
+					transition: all 0.4s
+					padding-bottom: 5px
+					letter-spacing: 1px
+					&:hover
+						border-bottom: 1px solid #fff
+						padding-bottom: 1px
+						color: #fff
+
+// _______________GALLERY________________
+
+.gallery	
+	&_flex
+		display: flex
+		flex-wrap: wrap
+		align-items: flex-end
+	&_arrow
+		position: absolute
+		z-index: 30
+		background-color: transparent
+		border: none
+		width: 40px
+		height: 40px
+		background-color: rgba(#c59d5f, 0.7)
+		top: calc(50% - 20px)
+		cursor: pointer
+		border-radius: 50%
+		i
+			color: #fff
+			font-size: 16px
+	&_prev
+		left: 5px
+	&_next
+		right: 5px
+	&_info
+		width: 50% // flex-basis 50%
+		text-align: center
+		h4
+			position: relative
+			display: inline-block
+			&::after, &::before
+				content: ' '
+				display: block
+				position: absolute
+				width: 20px
+				height: 2px
+				background-color: #c59d5f
+				top: 50%
+				margin-top: -1px
+			&::after
+				right: -35px
+			&::before
+				left: -35px
+		img
+			display: block
+			margin: auto
+			margin-top: 40px
+			margin-bottom: 30px
+	&_text
+		text-align: left
+		p
+			line-height: 1.5
+			font-size: 16px
+			font-weight: 300
+			color: #222
+			margin: 0
+			margin-bottom: 20px
+	&_slider
+		margin-left: auto
+		width: 45% // flex-basis 45%
+	&_item
+		background: url('../img/burg3.jpg') center no-repeat
+		background-size: cover
+		height: 300px
+
+// _______________HOUR________________
+
+.hour
+	background: #222 url('../img/hour_bg.jpg') center no-repeat
+	background-size: cover
+	position: relative
+	color: #fff
+	text-align: center
+	z-index: 2
+	&::after
+		content: ' '
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background: #111
+		opacity: 0.8
+		z-index: -1
+	&::before
+		content: ' '
+		position: absolute
+		bottom: -2px
+		left: 0
+		background: url('../img/triangle.png') center repeat-x
+		width: 100%
+		height: 10px
+	&_number
+		font-size: 36px
+		font-style: italic
+		color: #c59d5f
+		font-family: 'Bad Script', cursive
+		margin-top: 50px
+		display: inline-block
+	&_container
+		width: 800px
+		margin-left: auto
+		margin-right: auto
+	&_flex
+		display: flex
+		justify-content: space-between
+		align-items: center
+	&_decoration
+		background: url('../img/hour_dec.png') center repeat-y
+		width: 20px
+		height: 187px
+	&_right, &_left
+		flex-basis: 310px
+	&_day
+		margin-bottom: 0
+		&_first, &_last
+			font-size: 28px
+			font-weight: 900
+
+// _______________CLIENT________________
+
+.client	
+	&_flex
+		display: flex
+		flex-wrap: wrap
+		align-items: flex-end
+	&_arrow
+		position: absolute
+		z-index: 30
+		background-color: transparent
+		border: none
+		width: 40px
+		height: 40px
+		background-color: rgba(#c59d5f, 0.7)
+		top: calc(50% - 20px)
+		cursor: pointer
+		border-radius: 50%
+		i
+			color: #fff
+			font-size: 16px
+	&_prev
+		left: 5px
+	&_next
+		right: 5px
+	&_info
+		width: 50% // flex-basis 50%
+		text-align: center
+		h4
+			position: relative
+			display: inline-block
+			&::after, &::before
+				content: ' '
+				display: block
+				position: absolute
+				width: 20px
+				height: 2px
+				background-color: #c59d5f
+				top: 50%
+				margin-top: -1px
+			&::after
+				right: -35px
+			&::before
+				left: -35px
+		img
+			display: block
+			margin: auto
+			margin-top: 40px
+			margin-bottom: 30px
+	&_text
+		text-align: left
+		p
+			line-height: 1.5
+			font-size: 16px
+			font-weight: 300
+			color: #222
+			margin: 0
+			margin-bottom: 20px
+	&_slider
+		margin-right: auto
+		width: 45% // flex-basis 45%
+	&_item
+		background: url('../img/burg3.jpg') center no-repeat
+		background-size: cover
+		height: 300px
+
+// _______________MENU________________
+
+.menu
+	text-align: center
+	background-color: #f0f0f0
+	&_menu
+		text-align: left
+		width: 800px
+		margin-left: auto
+		margin-right: auto
+	&_img
+		width: 100%
+		height: 150px
+		&_1
+			background: url('../img/burg1.jpg') center no-repeat
+			background-size: cover
+		&_2
+			background: url('../img/burg2.jpg') center no-repeat
+			background-size: cover
+		&_3
+			background: url('../img/burg4.jpg') center no-repeat
+			background-size: cover
+	&_text
+		padding: 10px
+		background-color: #fff
+		padding-bottom: 20px
+		h5
+			font-size: 16px
+			color: darken(#c59d5f, 5)
+			margin: 0
+			margin-top: 10px
+			font-weight: 900
+		p
+			font-weight: 700
+			line-height: 1.5
+		span
+			font-weight: 900
+			color: #fea100
+			font-style: italic
+			cursor: pointer
+			text-decoration: underline
+			letter-spacing: 1px
+	&_item
+		flex-basis: 30%
+		font-family: 'Bad Script', cursive
+		&s
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-between
+			margin-top: 50px
+	&_offset
+		margin-top: 70px
+		display: none
+	&_active
+		display: block
+	&_list
+		padding: 0
+		list-style-type: none
+		display: flex
+		justify-content: center
+		margin-top: 50px
+		&_active
+			background-color: #111
+			color: #fff !important
+		li
+			margin-right: 40px
+			text-transform: uppercase
+			display: inline-block
+			text-decoration: none
+			color: #111
+			cursor: pointer
+			padding: 15px 0
+			width: 120px
+			font-family: 'Bad Script', cursive
+			font-weight: 900
+			border: 1px solid #111
+			transition: all 0.4s
+			&:hover
+				background-color: #fea100
+				color: #fff
+
+// _______________TEAM________________
+
+.team
+	text-align: center
+	background: url('../img/burg2.jpg') center no-repeat
+	background-size: cover
+	position: relative
+	color: #fff
+	z-index: 2
+	&::after
+		content: ' '
+		position: absolute
+		width: 100%
+		height: 100%
+		left: 0
+		top: 0
+		z-index: -1
+		background: #111
+		opacity: 0.8
+	h3
+		font-size: 24px
+		margin-bottom: 20px
+	&_item
+
+	&_container
+		width: 800px
+		margin: 0 auto
+	&_flex
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+		margin-top: 50px
+	&_item
+		flex-basis: 30%
+	&_photo
+		background: url('../img/burg3.jpg') center no-repeat
+		background-size: cover
+		display: block
+		width: 90%
+		height: 200px
+		margin: 0 auto
+		border-radius: 50%
+		cursor: pointer
+		transform: scale(1)
+		transition: all 0.4s
+		display: flex
+		align-items: center
+		justify-content: center
+		position: relative
+		z-index: 2
+		overflow: hidden
+		&::after
+			content: ' '
+			position: absolute
+			left: 0
+			top: 0
+			width: 100%
+			height: 100%
+			background: #111
+			opacity: 0.2
+			border-radius: 50%
+			z-index: -1
+		&:hover
+			transform: scale(0.9)
+			border: 2px solid #fea100
+		&:hover::after
+			opacity: 0.8
+		&:hover .team_descr
+			left: calc(50% - 40px)
+	&_descr
+		position: absolute
+		left: 100%
+		transition: all 0.4s
+		width: 80px
+	&_name
+		font-family: 'Bad Script', cursive
+		color: #c59d5f
+		text-transform: uppercase
+		font-size: 16px
+		margin-top: 20px
+	&_job
+		font-family: 'Bad Script', cursive
+		color: #fff
+		font-size: 14px
+		margin-top: 10px
+
+// _______________TEST________________
+
+.test
+	text-align: center
+	background-color: #222
+	color: #fff
+	padding-bottom: 100px
+	.gallery_prev
+		left: 45px
+	.gallery_next
+		right: 45px
+	&_text
+		width: 600px
+		margin: 0 auto
+		margin-top: 20px
+		line-height: 1.5
+		font-weight: 300
+	&_decoration
+		background: url('../img/test_dec.png') center repeat-x
+		width: 190px
+		height: 11px
+		margin: auto
+	&_name
+		font-family: 'Bad Script', cursive
+		margin-top: 70px
+		text-transform: uppercase
+	.slick-dots li button
+		&:before
+			content: ''
+			background-color: #fff
+			border-radius: 50%
+			top: 30px
+			width: 15px
+			height: 15px
+			display: inline-block
+		&:hover, &:focus
+			opacity: 0.6
+
+// _______________CONTACT________________
+
+.contact
+	text-align: center
+	background-color: #f0f0f0
+	padding: 80px 0
+	&_form
+		input
+			display: block
+			width: 800px
+			margin: 30px auto
+			padding: 10px 15px
+			padding-right: 50px
+			background-color: transparent
+			border: none
+			border: 1px solid #111
+			font-weight: 900
+			&::placeholder
+				color: #111
+				font-weight: 300
+		button
+			background-color: #fea100
+			border: 1px solid #111
+			width: 150px
+			padding: 15px 0
+			cursor: pointer
+			font-family: 'Bad Script', cursive
+			font-weight: 900
+			font-size: 24px
+			border-radius: 5px
+			transition: all 0.2s
+			&:hover
+				background-color: #111
+				color: #fea100
+		textarea
+			height: 250px
+			width: 800px
+			margin: 30px auto
+			background-color: transparent
+			border: 1px solid #111
+			padding: 10px 15px
+			padding-right: 50px
+			display: block
+			resize: none
+			font-weight: 900
+			&::placeholder
+				color: #111
+				font-weight: 300
+			&:focus
+				outline: none
+
+// _______________FOOTER________________
+
+.footer
+	background-color: #222
+	padding: 30px 0
+	color: #fff
+	&_flex
+		display: flex
+		justify-content: space-between
+		align-items: center
+	&_socials
+		a
+			color: #fff
+			margin-right: 10px
+			transition: all 0.4s
+			&:hover
+				color: #fea100
+	&_copy
+		letter-spacing: 1px
+		color: #fea100
+
+
+// 
+
+@media (max-width: 1200px)
+	.container
+		width: 900px
+
+@media (max-width: 950px)
+	.container	
+		width: 830px
+	.header
+		&_flex
+			&_item
+				a
+					font-size: 40px
+					&:hover
+						transform: scale(1.2)
+
+@media (max-width: 850px)
+
+	section
+		padding: 55px 0
+
+
+	.test
+		padding-bottom: 80px
+	
+	.contact_form
+		input, textarea
+			width: 100%
+
+	.team
+		&_container
+			width: 100%
+		&_item
+			width: 250px
+			margin: 25px auto
+		&_flex
+			flex-direction: column
+
+
+	.hour
+		&_flex
+			flex-direction: column
+			justify-content: center
+			align-items: center
+		&_right, &_left
+			flex-basis: 100%
+		&_center
+			display: none
+		&_container
+			width: 100%
+
+	.gallery
+		&_flex
+			flex-direction: column
+			justify-content: center
+			align-items: center
+		&_info
+			width: 100%
+		&_text
+			text-align: center
+			padding: 0 20px
+		&_slider
+			width: 80%
+			margin: auto
+			margin-top: 40px
+
+	.client
+		&_flex
+			flex-direction: column
+			justify-content: center
+			align-items: center
+		&_info
+			width: 100%
+		&_text
+			text-align: center
+			padding: 0 20px
+		&_slider
+			width: 80%
+			margin: auto
+			margin-top: 40px
+			order: 3
+
+	.menu
+		&_menu
+			width: 100%
+		.container
+			width: 100%
+		&_list
+			justify-content: space-around
+			li
+				margin-right: 0
+
+	.container
+		width: 720px
+	.header
+		&_top
+			ul
+				li
+					margin-right: 20px !important
+					a
+						font-size: 14px !important
+		&_flex_item a
+			font-size: 28px
+
+	.team_flex
+		margin-top: 0
+
+@media (max-width: 730px)
+	
+
+	.container
+		width: 540px
+	.header
+		&_mobile
+			display: block
+			&_close
+				position: absolute
+				right: 36px
+				top: 28px
+				font-size: 44px
+				color: #fff
+				cursor: pointer
+			&_menu
+				display: block
+				position: fixed
+				background-color: rgba(#fea100, 0.8)
+				z-index: 6000
+				top: 0
+				width: 100%
+				height: 100vh
+				margin: 0
+				left: 105%
+				padding: 0
+				list-style-type: none
+				display: flex
+				align-items: center
+				justify-content: center
+				flex-direction: column
+				transition: all 0.6s
+				&_active
+					left: 0
+				ul
+					padding: 0
+					list-style-type: none
+					text-align: center
+					li
+						margin-bottom: 35px
+						color: #fff
+						font-family: 'Bad Script', cursive
+						a
+							font-size: 24px
+							color: #fff
+							transition: all 0.6s
+							&:hover
+								color: #111
+		&_flex_item a
+			font-size: 24px
+		&_top
+			position: fixed
+			z-index: 5000
+			top: 0
+			left: 0
+			ul.header_nav
+				display: none
+			.container
+				position: relative
+		&_mobile
+			position: absolute
+			top: 0
+			color: #fea100
+			border: none
+			background-color: transparent
+			font-size: 24px
+			right: 30px
+			top: 40px
+
+	.test_text
+		width: 100%
+		padding: 0 20px
+	
+	.scrollOTop
+		width: 30px
+		height: 30px
+		bottom: 10px
+		right: 10px
+		i
+			font-size: 14px
+
+@media (max-width: 576px)
+
+	section
+		padding: 60px 0
+
+	.heading
+		font-size: 32px
+		&_curs
+			font-size: 28px
+
+	.circle
+		&::before
+			width: 50px
+			right: 50px
+		&::after
+			width: 50px
+			left: 50px
+
+	.header
+		overflow: visible
+		img
+			height: 65px
+			width: 100px
+		&_mobile
+			top: 30px
+			right: 20px
+	.container
+		width: 100%
+	.header_mobile
+		font-size: 20px
+		&_close
+			right: 27px
+			top: 23px
+			font-size: 32px
+	.header_flex
+		flex-direction: column
+		padding-top: 89px
+		&_item
+			flex-basis: 25%
+			width: 100%
+			a
+				font-size: 36px
+	.header_top
+		background: rgba(85, 68, 85, 1)
+	.gallery_slider
+		height: 100%
+
+	.menu
+		&_list
+			justify-content: center
+			align-items: center
+			flex-wrap: wrap
+			li
+				margin-bottom: 20px
+				flex-basis: 35%
+				margin-right: 30px
+				&:nth-child(2n)
+					margin-right: 0
+
+		&_items
+			flex-direction: column
+			justify-content: center
+			margin: 0
+		&_offset
+			margin-top: 20px
+		&_item
+			margin: 30px auto
+			width: 280px
+			flex-basis: 100%
+
+	.test
+		&_name
+			margin-top: 30px
+
+	.footer
+		&_flex
+			flex-direction: column
+			justify-content: center
+			align-items: center
+			text-align: center
+		&_socials
+			margin-bottom: 15px
+			a
+				font-size: 20px
+				margin-right: 30px
+
+
+
+

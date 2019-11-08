@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="keywords" content="DoubleBee Burger">
+		<meta name="description" content="Просторное и комфортабельное кафэ, вкусная и сочная еда">
+		<meta name="author" content="adamaka47">
+		<meta property="og:image" content="img/logo.png">
+		<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+		<link href="https://fonts.googleapis.com/css?family=Bad+Script|Source+Sans+Pro:300,400,900&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+		<link rel="stylesheet" href="css/slick-theme.css">
+		<link rel="stylesheet" href="css/slick.css">
+		<link rel="stylesheet" href="css/animate.css">
+		<link rel="stylesheet" href="css/main.css">
+		<title>DoubleBee Burger</title>
+		<style>
+		/*<!-- SCROLL -->*/
+		::-webkit-scrollbar {
+		    width: 12px;
+		}
+
+		::-webkit-scrollbar-track {
+		    background-color: #111;
+		}
+
+		::-webkit-scrollbar-thumb {
+		    background: #fff; 
+		   
+		}
+		/*<!-- PRELOADER -->*/
+			@keyframes loader {
+			  0% {
+			    width: 10%;
+			    transform: rotate(0deg);
+			  }
+			  10% {
+			    left: 0%;
+			    transform: rotate(0deg);
+			  }
+			  20% {
+			    width: 0%;
+			    left: 20%;
+			  }
+			  30% {
+			    width: 25%;
+			  }
+			  50% {
+			    left: 15%;
+			    width: 35%;
+			  }
+			  70% {
+			    width: 30%;
+			    left: 18%;
+			    transform: rotate(240deg);
+			  }
+			  90% {
+			    width: 30%;
+			    left: 10%;
+			  }
+			  100% {
+			    width: 2%;
+			    left: 25%;
+			    transform: rotate(360deg);
+			  }
+			}
+			@keyframes pan {
+			  0% {
+			    transform: rotate(0deg);
+			    transform-origin: top right;
+			  }
+			  10% {
+			    transform: rotate(-2deg);
+			    transform-origin: top right;
+			  }
+			  50% {
+			    transform: rotate(10deg);
+			  }
+			  100% {
+			    transform: rotate(0deg);
+			  }
+			}
+			@keyframes shadow {
+			  0% {
+			    width: 30%;
+			  }
+			  50% {
+			    width: 40%;
+			    left: 20px;
+			  }
+			  100% {
+			    width: 30%;
+			  }
+
+
+			}
+			.pan-loader {
+			  width: 180px;
+			  height: 180px;
+			  z-index: 5;
+			  
+			}
+			.pan-loader .loader {
+			  position: relative;
+			  top: 10%;
+			  left: 0;
+			  z-index: -1;
+			  width: 60%;
+			  height: 45%;
+			  border: 10px solid transparent;
+			  border-bottom: 10px solid yellow;
+			  border-radius: 50%;
+			  animation: loader 2s infinite;
+			  animation-timing-function: linear;
+			}
+			.pan-loader .pan-container {
+			  display: flex;
+			  width: 100%;
+			  animation: pan 2s infinite;
+			}
+			.pan-loader .pan {
+			  width: 60%;
+			  height: 20px;
+			  background: linear-gradient(red, red);
+			  border-bottom-right-radius: 20px;
+			  border-bottom-left-radius: 20px;
+			}
+			.pan-loader .handle {
+			  width: 40%;
+			  height: 10px;
+			  background: linear-gradient(purple, purple);
+			  border-top-right-radius: 10px;
+			  border-top-left-radius: 10px;
+			  border-bottom-right-radius: 10px;
+			  border-bottom-left-radius: 10px;
+			}
+			.pan-loader .shadow {
+			  position: relative;
+			  top: 15%;
+			  left: 15%;
+			  width: 30%;
+			  height: 8px;
+			  background: lightgray;
+			  border-radius: 20px;
+			  animation: shadow 2s infinite;
+			}
+
+			.all {
+			  display: -webkit-flex;
+			  display: -moz-flex;
+			  display: -ms-flex;
+			  display: -o-flex;
+			  display: flex;
+			  -ms-align-items: center;
+			  align-items: center;
+			  justify-content: center;
+			  height: 100vh;
+			  background-color: #fea100;
+			  overflow: hidden;
+			  position: fixed;
+			  z-index: 10000;
+			  width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+
+
+	<div class="all">
+
+		<div class="pan-loader">
+			<div class="loader"></div>
+			<div class="pan-container">
+				<div class="pan"></div>
+				<div class="handle"></div>
+			</div>
+		<div class="shadow"></div>
+	</div>
+  
+  </div>
+
+	<button class="scrollOTop">
+		<i class="fas fa-arrow-up"></i>
+	</button>
+	
+
+	<header class="header" id="header">
+		<div class="header_mobile_menu">
+			<ul>
+				<li><a href="#gallery">Галлерея</a></li>
+				<li><a href="#hour">Часы работы</a></li>
+				<li><a href="#menu">Меню</a></li>
+				<li><a href="#test">Отзывы</a></li>
+				<li><a href="#contact">Контакты</a></li>
+			</ul>
+			<div class="header_mobile_close">&times;</div>
+		</div>
+		<div class="header_top">
+			<div class="container">
+				<div class="header_logo">
+					<a href="index.html"><img src="img/logo.png" alt="Logo" class="img-fluid"></a>
+				</div>
+				<ul class="header_nav">
+					<li><a href="#gallery">Галлерея</a></li>
+					<li><a href="#hour">Часы работы</a></li>
+					<li><a href="#menu">Меню</a></li>
+					<li><a href="#test">Отзывы</a></li>
+					<li><a href="#contact">Контакты</a></li>
+				</ul>
+			</div>
+			<button type="submit" class="header_mobile"><i class="fas fa-bars"></i></button>
+		</div>
+		<div class="header_flex">
+			<div class="header_flex_item header_flex_item_1">
+				<a href="#menu" class="header_link" data-tab="0">Бургеры</a>
+			</div>
+			<div class="header_flex_item header_flex_item_2">
+				<a href="#menu" class="header_link" data-tab="1">Шаурма</a>
+			</div>
+			<div class="header_flex_item header_flex_item_3">
+				<a href="#menu" class="header_link" data-tab="2">Суши</a>
+			</div>
+			<div class="header_flex_item header_flex_item_4">
+				<a href="#menu" class="header_link" data-tab="3">Напитки</a>
+			</div>
+		</div>
+		<div class="header_arrow">
+			<a href="#gallery"><i class="fas fa-chevron-down"></i></a>
+		</div>
+	</header>
+
+	<section class="gallery" id="gallery">
+		<div class="container">
+			<div class="gallery_flex">
+				<div class="gallery_info wow bounceInLeft">
+					<h2 class="title gallery_title">Галлерея</h2>
+					<h4 class="title_small gallery_small">Фотогаллерея</h4>
+					<img src="img/flowers.png" alt="Flower">
+					<div class="gallery_text" data-wow-delay="0.2s">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam ratione aut debitis voluptatibus eum velit error, quibusdam recusandae odit doloribus enim minus, magni, porro? Voluptas nostrum unde eius sunt recusandae est voluptatum, omnis nihil id repellendus, enim error cum quia.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, delectus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt id eaque possimus voluptatem ea dolores.</p>
+						<a href="#menu" class="menu_link">Открыть все меню</a>
+					</div>
+				</div>
+				<div class="gallery_slider wow bounceInRight" data-wow-delay="0.2s">
+					<div class="gallery_items">
+						<div class="gallery_item gallery_item_1">
+						</div>
+						<div class="gallery_item gallery_item_2">
+						</div>
+						<div class="gallery_item gallery_item_3">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="hour" id="hour">
+		<div class="container">
+			<h2 class="heading hour_title">Часы работы</h2>
+			<h3 class="heading_curs hour_small">Без перерыва</h3>
+			<div class="circle"></div>
+			<div class="hour_container">
+				<div class="hour_flex">
+					<div class="hour_left wow fadeInLeft">
+						<p class="hour_day heading_curs">
+							Понедельник - Пятница
+						</p>
+						<p class="hour_day_first">09:00</p>
+						<p class="hour_day_last">22:00</p>
+					</div>
+					<div class="hour_center">
+						<div class="hour_decoration"></div>
+					</div>
+					<div class="hour_right wow fadeInRight">
+						<p class="hour_day heading_curs">
+							Суббота - Воскресенье
+						</p>
+						<p class="hour_day_first">10:00</p>
+						<p class="hour_day_last">20:00</p>
+					</div>
+				</div>
+				<a class="hour_number" href="tel:+79999999999">+7 (999) 999-99-99</a>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="client" id="client">
+		<div class="container">
+			<div class="client_flex">
+				<div class="client_slider wow bounceInLeft">
+					<div class="client_items">
+						<div class="client_item client_item_1">
+						</div>
+						<div class="client_item client_item_2">
+						</div>
+						<div class="client_item client_item_3">
+						</div>
+					</div>
+				</div>
+				<div class="client_info wow bounceInRight">
+					<h2 class="title client_title">Описание</h2>
+					<h4 class="title_small gallery_small">Еда</h4>
+					<img src="img/flowers.png" alt="Flower">
+					<div class="client_text">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam ratione aut debitis voluptatibus eum velit error, quibusdam recusandae odit doloribus enim minus, magni, porro? Voluptas nostrum unde eius sunt recusandae est voluptatum, omnis nihil id repellendus, enim error cum quia.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, delectus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt id eaque possimus voluptatem ea dolores.</p>
+						<a href="#test" class="menu_link">Перейти к отзывам</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="menu" id="menu">
+		<div class="container">
+			<h2 class="heading menu_title wow fadeInDown">
+				Наше меню
+			</h2>
+			<h3 class="heading_curs menu_small wow fadeInUp">
+				Блюда
+			</h3>
+			<ul class="menu_list">
+				<li data-tab="0" class="menu_list_active">Бургеры</li>
+				<li data-tab="1">Шаурма</li>
+				<li data-tab="2">Суши</li>
+				<li data-tab="3">Напитки</li>
+			</ul>
+			<div class="menu_menu">
+				<div class="menu_offset menu_burger menu_active" data-tab="0">
+					<div class="menu_items wow fadeIn">
+						<div class="menu_item">
+							<div class="menu_img menu_img_1"></div>
+							<div class="menu_text">
+								<h5>Флэш Рояль</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_2"></div>
+							<div class="menu_text">
+								<h5>Гамбургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_3"></div>
+							<div class="menu_text">
+								<h5>Чикен Бургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+					</div>
+					<div class="menu_items wow fadeIn">
+						<div class="menu_item">
+							<div class="menu_img menu_img_1"></div>
+							<div class="menu_text">
+								<h5>Флэш Рояль</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_2"></div>
+							<div class="menu_text">
+								<h5>Гамбургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_3"></div>
+							<div class="menu_text">
+								<h5>Чикен Бургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+					</div>
+					<div class="menu_items wow fadeIn">
+						<div class="menu_item">
+							<div class="menu_img menu_img_1"></div>
+							<div class="menu_text">
+								<h5>Флэш Рояль</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_2"></div>
+							<div class="menu_text">
+								<h5>Гамбургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_3"></div>
+							<div class="menu_text">
+								<h5>Чикен Бургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="menu_offset menu_doner" data-tab="1">
+					<div class="menu_items wow fadeIn">
+						<div class="menu_item">
+							<div class="menu_img menu_img_1"></div>
+							<div class="menu_text">
+								<h5>Флэш Рояль</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_1"></div>
+							<div class="menu_text">
+								<h5>Гамбургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_1"></div>
+							<div class="menu_text">
+								<h5>Чикен Бургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+					</div>
+					<div class="menu_items wow fadeIn">
+						<div class="menu_item">
+							<div class="menu_img menu_img_1"></div>
+							<div class="menu_text">
+								<h5>Флэш Рояль</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_1"></div>
+							<div class="menu_text">
+								<h5>Гамбургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_1"></div>
+							<div class="menu_text">
+								<h5>Чикен Бургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+					</div>
+					<div class="menu_items wow fadeIn">
+						<div class="menu_item">
+							<div class="menu_img menu_img_1"></div>
+							<div class="menu_text">
+								<h5>Флэш Рояль</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_1"></div>
+							<div class="menu_text">
+								<h5>Гамбургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_1"></div>
+							<div class="menu_text">
+								<h5>Чикен Бургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="menu_offset menu_sushi" data-tab="2">
+					<div class="menu_items wow fadeIn">
+						<div class="menu_item">
+							<div class="menu_img menu_img_2"></div>
+							<div class="menu_text">
+								<h5>Флэш Рояль</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_2"></div>
+							<div class="menu_text">
+								<h5>Гамбургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_2"></div>
+							<div class="menu_text">
+								<h5>Чикен Бургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+					</div>
+					<div class="menu_items wow fadeIn">
+						<div class="menu_item">
+							<div class="menu_img menu_img_2"></div>
+							<div class="menu_text">
+								<h5>Флэш Рояль</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_2"></div>
+							<div class="menu_text">
+								<h5>Гамбургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_2"></div>
+							<div class="menu_text">
+								<h5>Чикен Бургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+					</div>
+					<div class="menu_items wow fadeIn">
+						<div class="menu_item">
+							<div class="menu_img menu_img_2"></div>
+							<div class="menu_text">
+								<h5>Флэш Рояль</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_2"></div>
+							<div class="menu_text">
+								<h5>Гамбургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_2"></div>
+							<div class="menu_text">
+								<h5>Чикен Бургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="menu_offset menu_drink" data-tab="3">
+					<div class="menu_items wow fadeIn">
+						<div class="menu_item">
+							<div class="menu_img menu_img_3"></div>
+							<div class="menu_text">
+								<h5>Флэш Рояль</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_3"></div>
+							<div class="menu_text">
+								<h5>Гамбургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_3"></div>
+							<div class="menu_text">
+								<h5>Чикен Бургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+					</div>
+					<div class="menu_items wow fadeIn">
+						<div class="menu_item">
+							<div class="menu_img menu_img_3"></div>
+							<div class="menu_text">
+								<h5>Флэш Рояль</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_3"></div>
+							<div class="menu_text">
+								<h5>Гамбургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_3"></div>
+							<div class="menu_text">
+								<h5>Чикен Бургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+					</div>
+					<div class="menu_items wow fadeIn">
+						<div class="menu_item">
+							<div class="menu_img menu_img_3"></div>
+							<div class="menu_text">
+								<h5>Флэш Рояль</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_3"></div>
+							<div class="menu_text">
+								<h5>Гамбургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+						<div class="menu_item">
+							<div class="menu_img menu_img_3"></div>
+							<div class="menu_text">
+								<h5>Чикен Бургер</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, voluptatum!</p>
+								<span>120 руб.</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="team" id="team">
+		<div class="container">
+			<h2 class="heading_curs wow fadeIn">Наши повара</h2>
+			<h3 class="heading wow fadeIn">любимая команда</h3>
+			<div class="circle"></div>
+			<div class="team_container">
+				<div class="team_flex">
+					<div class="team_item wow flipInY" data-wow-delay="0.1s">
+						<div class="team_top">
+							<div class="team_photo">
+								<div class="team_descr">
+									<span>Опыт: 1 год</span>
+								</div>
+							</div>
+						</div>
+						<p class="team_name">Адамака Сороко</p>
+						<p class="team_job">Главный менеджер</p>
+					</div>
+					<div class="team_item wow flipInY" data-wow-delay="0.2s">
+						<div class="team_top">
+							<div class="team_photo">
+								<div class="team_descr">
+									<span>Опыт: 1 год</span>
+								</div>
+							</div>
+						</div>
+						<p class="team_name">Адамака Сороко</p>
+						<p class="team_job">Главный менеджер</p>
+					</div>
+					<div class="team_item wow flipInY" data-wow-delay="0.3s">
+						<div class="team_top">
+							<div class="team_photo">
+								<div class="team_descr">
+									<span>Опыт: 1 год</span>
+								</div>
+							</div>
+						</div>
+						<p class="team_name">Адамака Сороко</p>
+						<p class="team_job">Главный менеджер</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="test" id="test">
+		<div class="container">
+			<h2 class="heading wow fadeInDown">Отзывы Клиентов</h2>
+			<h3 class="heading_curs wow fadeInUp">Разнообразие</h3>
+			<div class="test_slider">
+				<div class="test_item">
+					<p class="test_name">Архимед Баренов</p>
+					<div class="circle"></div>
+					<div class="test_decoration"></div>
+					<p class="test_text">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo suscipit molestiae veritatis, ex sunt facilis eum officia. Facere impedit eum nulla, quos iste, nobis illo provident sequi dolorem corporis asperiores, ipsum maxime. Obcaecati optio, magni quaerat, quas error pariatur quo.
+					</p>
+				</div>
+				<div class="test_item">
+					<p class="test_name">Архимед Баренов</p>
+					<div class="circle"></div>
+					<div class="test_decoration"></div>
+					<p class="test_text">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo suscipit molestiae veritatis, ex sunt facilis eum officia. Facere impedit eum nulla, quos iste, nobis illo provident sequi dolorem corporis asperiores, ipsum maxime. Obcaecati optio, magni quaerat, quas error pariatur quo.
+					</p>
+				</div>
+				<div class="test_item">
+					<p class="test_name">Архимед Баренов</p>
+					<div class="circle"></div>
+					<div class="test_decoration"></div>
+					<p class="test_text">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo suscipit molestiae veritatis, ex sunt facilis eum officia. Facere impedit eum nulla, quos iste, nobis illo provident sequi dolorem corporis asperiores, ipsum maxime. Obcaecati optio, magni quaerat, quas error pariatur quo.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="contact" id="contact">
+		<div class="container">
+			<h2 class="heading">Напишите нам</h2>
+			<h3 class="heading_curs">Мы ценим каждого покупателя</h3>
+			<div class="contact_form">
+				<form action="mailer/smart.php" method="POST">
+					<input type="text" placeholder="Ваше имя..." required name="user_name" class="wow bounceInLeft" data-wow-delay="0.1s">
+					<input type="tel" placeholder="Ваш телефон..." required name="user_phone" class="wow bounceInLeft" data-wow-delay="0.1s">
+					<input type="email" placeholder="Ваша электронная почта..." name="user_email" class="wow bounceInLeft" data-wow-delay="0.2s">
+					<textarea name="message" placeholder="Введите ваше сообщение..." name="user_address" class="wow bounceInLeft" data-wow-delay="0.2s"></textarea>
+					<button type="submit">Отправить</button>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<div id="map">
+		<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aeef869567881b63c1165b3883b66f094df60030c38e0a623a24462632811f736&amp;width=100%25&amp;height=550&amp;lang=ru_RU&amp;scroll=false"></script>
+	</div>
+
+	<footer class="footer" id="footer">
+		<div class="container">
+			<div class="footer_flex">
+				<div class="footer_socials wow bounceInLeft">
+					<a href="#" target="_blank"><i class="fab fa-vk"></i></a>
+					<a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+					<a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+				</div>
+				<div class="footer_copy wow bounceInRight">
+					© DoubleBee Burger 2019. All rights copyrighted
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+
+	<script src="js/jq.js"></script>
+	<script src="js/slick.min.js"></script>
+	<script src="js/SmoothScroll.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script>
+		new WOW().init();
+	</script>
+	<script src="js/jquery.mask.min.js"></script>
+	<script>
+		$(document).ready(function() {
+
+
+
+			$(window).on('load', function() {
+				$('.all').fadeOut('slow');
+			});
+
+
+
+			$('.gallery_items').slick({
+				arrows: true,
+				prevArrow: '<button type="button" class="gallery_arrow gallery_prev"><i class="fas fa-chevron-left"></i></button>',
+				nextArrow: '<button type="button" class="gallery_arrow gallery_next"><i class="fas fa-chevron-right"></i></button>'
+			});
+			$('.client_items').slick({
+				arrows: true,
+				prevArrow: '<button type="button" class="gallery_arrow gallery_prev"><i class="fas fa-chevron-left"></i></button>',
+				nextArrow: '<button type="button" class="gallery_arrow gallery_next"><i class="fas fa-chevron-right"></i></button>'
+			});
+			$('.test_slider').slick({
+				arrows: true,
+				prevArrow: '<button type="button" class="gallery_arrow gallery_prev"><i class="fas fa-chevron-left"></i></button>',
+				nextArrow: '<button type="button" class="gallery_arrow gallery_next"><i class="fas fa-chevron-right"></i></button>',
+				dots: true,
+				responsive: [
+				    {
+				      breakpoint: 768,
+				      settings: {
+				        arrows: false
+				      }
+				    }
+			    ]
+			});
+
+			var navLink = $('.header_nav li a');
+			navLink.on('click', function(event) {
+				event.preventDefault();
+				var offs = $(this).attr('href');
+				var top = $(offs).offset().top;
+				$('html, body').animate({scrollTop: top}, 1800);
+			});
+
+			var navLinkMob = $('.header_mobile_menu ul li a');
+			navLinkMob.on('click', function(event) {
+				event.preventDefault();
+				var offs = $(this).attr('href');
+				var top = $(offs).offset().top;
+				$('html, body').animate({scrollTop: top - 60}, 1800);
+				$('.header_mobile_menu').toggleClass('header_mobile_menu_active');
+			});
+
+			$('.header_arrow a').on('click', function(event) {
+				event.preventDefault();
+				var offs = $(this).attr('href');
+				var top = $(offs).offset().top;
+				$('html, body').animate({scrollTop: top - 60}, 1000);
+			});
+
+			$('.gallery_text a').on('click', function(event) {
+				event.preventDefault();
+				var offs = $(this).attr('href');
+				var top = $(offs).offset().top;
+				$('html, body').animate({scrollTop: top - 60}, 1500);
+			});
+
+			$('.client_text a').on('click', function(event) {
+				event.preventDefault();
+				var offs = $(this).attr('href');
+				var top = $(offs).offset().top;
+				$('html, body').animate({scrollTop: top - 60}, 1500);
+			});
+
+			var tab = $('.menu_list li');
+
+			tab.on('click', function() {
+				tab.removeClass('menu_list_active');
+				$(this).toggleClass('menu_list_active');
+				$('.menu_offset').removeClass('menu_active');
+				$('.menu_offset[data-tab='+$(this).index()+']').toggleClass('menu_active');
+			});
+
+			var burgerNav = $('.header_link');
+			burgerNav.on('click', function(event) {
+				event.preventDefault();
+				var offs = $(this).attr('href');
+				var top = $(offs).offset().top;
+				$('html, body').animate({scrollTop: top}, 1500);
+			});
+
+			$('a[data-tab="0"]').on('click', function() {
+				$(tab).removeClass('menu_list_active');
+				$('li[data-tab="0"').toggleClass('menu_list_active');
+			});
+
+			$('a[data-tab="1"]').on('click', function() {
+				$(tab).removeClass('menu_list_active');
+				$('li[data-tab="1"').toggleClass('menu_list_active');
+			});
+
+			$('a[data-tab="2"]').on('click', function() {
+				$(tab).removeClass('menu_list_active');
+				$('li[data-tab="2"').toggleClass('menu_list_active');
+			});
+
+			$('a[data-tab="3"]').on('click', function() {
+				$(tab).removeClass('menu_list_active');
+				$('li[data-tab="3"').toggleClass('menu_list_active');
+			});
+
+
+			$(window).scroll(function() {
+				if ($(this).scrollTop() > 200) {
+					$('.scrollOTop').fadeIn('slow');
+				} else {
+					$('.scrollOTop').fadeOut('slow');
+				}
+			});
+
+			$('.scrollOTop').on('click', function(event) {
+				event.preventDefault();
+				$('html, body').animate({scrollTop: 0}, 500)
+			});
+
+			$('.header_mobile').click(function() {
+				$('.header_mobile_menu').toggleClass('header_mobile_menu_active');
+			});
+
+			$('.header_mobile_close').click(function() {
+				$('.header_mobile_menu').toggleClass('header_mobile_menu_active');
+			});
+
+			 $('input[type="tel"]').mask('+7(000)000-00-00');
+
+		});
+	</script>
+	</body>
+
+</html>
